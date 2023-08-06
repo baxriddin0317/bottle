@@ -64,54 +64,51 @@ const Header = () => {
 
       {/* header right */}
       <div className="flex items-center gap-4">
-        <Tippy 
-          content='Toggle Dark Mode'
-          className='bg-white !text-sm'
-          appendTo="parent"
-          interactive={true}
-          theme={!darkMode && 'light'} 
-          placement="bottom"
-        >
-          <label className="relative inline-block w-10 h-5 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={isChecked}
-              onChange={handleSwitch}
-              className="hidden"
-            />
-            <span className={`absolute left-0 top-0 w-10 h-6 rounded-full bg-transparent border ${isChecked ? `border-brand-${theme}` : 'border-gray-300' } `} />
-            <span
-              className={`absolute left-1 top-1 w-4 h-4 rounded-full transition-transform ${
-                isChecked ? `bg-brand-${theme} transform translate-x-full` : 'bg-gray-300'
-              }`}
-            />
-          </label>
-        </Tippy>
+        <div>
+          <Tippy 
+            content='Toggle Dark Mode'
+            theme={!darkMode && 'light'} 
+            placement="bottom"
+          >
+            <label className="relative inline-block w-10 h-5 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleSwitch}
+                className="hidden"
+              />
+              <span className={`absolute left-0 top-0 w-10 h-6 rounded-full bg-transparent border ${isChecked ? `border-brand-${theme}` : 'border-gray-300' } `} />
+              <span
+                className={`absolute left-1 top-1 w-4 h-4 rounded-full transition-transform ${
+                  isChecked ? `bg-brand-${theme} transform translate-x-full` : 'bg-gray-300'
+                }`}
+              />
+            </label>
+          </Tippy>
+        </div>
 
-        <Tippy 
-          content='Fullscreen'
-          className='bg-white !text-sm'
-          appendTo="parent"
-          interactive={true}
-          theme={!darkMode && 'light'} 
-          placement="bottom"
-        >
-          <button onClick={handleClick} className="text-gray-600 text-2xl pt-1 bg-transparent dark:text-brand-gray-dark">
-            {!isFullScreen ? <TfiFullscreen /> : <AiOutlineFullscreenExit />}
-          </button>
-        </Tippy>
+        <div>
+          <Tippy 
+            content='Fullscreen'
+            theme={!darkMode && 'light'} 
+            placement="bottom"
+          >
+            <button onClick={handleClick} className="text-gray-600 text-2xl pt-1 bg-transparent dark:text-brand-gray-dark">
+              {!isFullScreen ? <TfiFullscreen /> : <AiOutlineFullscreenExit />}
+            </button>
+          </Tippy>
+        </div>
         {/* profile */}
-        <Tippy 
-          content={<Tooltip />}
-          className='bg-white !text-sm'
-          appendTo="parent"
-          interactive={true}
-          theme={!darkMode && 'light'} 
-          placement="bottom"
-        >
-          <div className="w-12 h-12 border-2 border-black dark:border-brand-gray-dark bg-gray-200 dark:bg-brand-black-primary rounded-full cursor-pointer">
-          </div>
-        </Tippy>
+        <div>
+          <Tippy 
+            content={<Tooltip />}
+            theme={!darkMode && 'light'} 
+            placement="bottom"
+          >
+            <div className="w-12 h-12 border-2 border-black dark:border-brand-gray-dark bg-gray-200 dark:bg-brand-black-primary rounded-full cursor-pointer">
+            </div>
+          </Tippy>
+        </div>
       </div>
     </header>
   );

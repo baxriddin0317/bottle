@@ -15,9 +15,6 @@ const SidebarLeft = () => {
           <div key={idx}>
             <Tippy  
               content={item.data ? <Tooltip data={item.data} /> : '' }
-              className='bg-white'
-              appendTo="parent"
-              interactive={true}
               theme={!darkMode && 'light'} 
               placement="left"
             >
