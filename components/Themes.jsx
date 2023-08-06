@@ -13,12 +13,12 @@ const Themes = () => {
       <div className="grid grid-cols-3 gap-4">
         {themesColor.map((item, idx) => (
           <div
-            className={`flex flex-col gap-2 items-center p-4  border shadow-lg rounded-lg hover:border-brand-${theme} dark:hover:border-brand-${theme} cursor-pointer group ${theme === item.name ? `border-brand-${theme}` : 'border-brand-gray-dark dark:border-brand-black-primary'}`}
+            className={`group flex flex-col gap-2 items-center p-4 border shadow-lg rounded-lg hover:border-brand-${theme} dark:hover:border-brand-${theme} cursor-pointer ${theme === item.name ? `border-brand-${theme}` : 'border-transparent dark:border-brand-black-primary'}`}
             key={idx}
             onClick={() => setTheme(item.name)}
           >
             <span className={`block w-8 h-8 rounded-full border border-white dark:border-brand-black-primary shadow-md bg-brand-${item.name}`}></span>
-            <span className={`capitalize text-sm text-brand-${theme} dark:text-brand-gray-dark group-hover:text-brand-${theme}`}>{item.name}</span>
+            <span className={`capitalize text-sm text-brand-gray-dark dark:text-brand-gray-dark group-hover:text-brand-${theme}`}>{item.name}</span>
           </div>
         ))}
       </div>

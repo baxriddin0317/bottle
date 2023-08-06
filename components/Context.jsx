@@ -65,16 +65,17 @@ export const Provider = ({children}) => {
   }
 
   const value= {
+    darkMode,
     left,
-    handleLeft,
     right,
-    handleRight,
-    handleSwitch,
     isChecked,
     theme,
-    setTheme,
     menu,
-    setMenu
+    handleSwitch,
+    handleRight,
+    setTheme,
+    setMenu,
+    handleLeft,
   }
   return <MainContext.Provider value={value}>
     {children}
