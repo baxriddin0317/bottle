@@ -13,7 +13,7 @@ const SidebarRight = () => {
     <div className='relative'>
       <aside className={`fixed top-0 z-40 shadow-md dark:shadow-none bg-white dark:bg-brand-black-dark text-brand-black-light dark:text-white h-screen transition-all duration-500 ease-in-out w-80 ${right ? 'right-0' : '-right-80'}`}>
         {/* toggle btn */}
-        <button className={`absolute text-2xl top-1/2 -translate-y-1/2 right-full bg-brand-${amber} rounded-tl-lg rounded-bl-lg py-2 px-4`} onClick={handleRight}>
+        <button className={`absolute text-2xl top-1/2 -translate-y-1/2 right-full bg-brand-amber rounded-tl-lg rounded-bl-lg py-2 px-4`} onClick={handleRight}>
           <IoSettingsOutline className='animate-spin animate-duration-[3000ms] animate-normal text-white dark:text-brand-black-primary' />
         </button>
         
