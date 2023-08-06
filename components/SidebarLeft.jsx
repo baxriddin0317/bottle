@@ -9,7 +9,7 @@ const SidebarLeft = () => {
     <aside className={`fixed top-20 shadow-md dark:shadow-none h-screen transition-all duration-500 ease-in-out ${menu ? `bg-brand-${theme}` : 'bg-white dark:bg-brand-black-dark text-brand-black-light dark:text-white'} ${left ? 'left-0' : '-left-full'}`}>
       <div className='flex flex-col w-full h-screen overflow-y-auto overflow-x-visible pb-10'>
         {menuItems.map((item, idx) => (
-          <div key={idx} className={`relative group flex flex-col items-center py-6 px-5 border-b border-brand-gray dark:border-brand-black-primary cursor-pointer ${item.active ? `sidebar-active ${!menu ? `before:bg-brand-${theme}` : 'before:bg-white dark:before:bg-brand-black-dark' } text-brand-${theme}` : 'text-brand-black-light dark:text-brand-gray-dark'} ${menu ? 'text-white dark:text-brand-black-primary' : `hover:text-brand-${theme} dark:hover:text-brand-${theme}`}`}>
+          <div key={idx} className={`relative group flex flex-col items-center py-6 px-5 border-b border-brand-gray dark:border-brand-black-primary cursor-pointer ${item.active ? `sidebar-active ${!menu ? `before:bg-brand-${theme}` : 'before:bg-white dark:before:bg-brand-black-dark' } text-brand-${theme}` : 'text-brand-black-light dark:text-brand-gray-dark'} ${menu ? 'text-white dark:!text-brand-black-primary' : `hover:text-brand-${theme} dark:hover:text-brand-${theme}`}`}>
             <span className={`text-4xl ${item.active && 'rotate-90'}`}>
               {item.icon}
             </span>
