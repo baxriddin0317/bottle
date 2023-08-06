@@ -8,7 +8,7 @@ import { MainContext } from "./Context";
 
 const Header = () => {
   const [isFullScreen, setIsFullScreen] = useState(false);
-  const {handleLeft, isChecked, handleSwitch} = useContext(MainContext)
+  const {handleLeft, isChecked, handleSwitch, theme} = useContext(MainContext)
 
   const requestFullScreen = () => {
     const element = document.documentElement;
@@ -52,7 +52,7 @@ const Header = () => {
         <button className="bg-transparent" onClick={handleLeft}>
           <RxHamburgerMenu className="text-2xl dark:text-brand-gray-dark" />
         </button>
-        <span className="text-2xl font-bold uppercase text-brand-black-light dark:text-brand-gray-dark">
+        <span className={`text-2xl font-bold uppercase text-brand-black-light dark:text-brand-gray-dark`}>
           PRIORITY4
         </span>
       </div>
@@ -66,10 +66,10 @@ const Header = () => {
             onChange={handleSwitch}
             className="hidden"
           />
-          <span className={`${isChecked ? 'border-indigo-600' : 'border-gray-300' } slider absolute left-0 top-0 w-10 h-6 rounded-full bg-transparent border`} />
+          <span className={`absolute left-0 top-0 w-10 h-6 rounded-full bg-transparent border ${isChecked ? `border-brand-${theme}` : 'border-gray-300' } `} />
           <span
-            className={`toggle-dot absolute left-1 top-1 w-4 h-4 rounded-full transition-transform ${
-              isChecked ? 'bg-indigo-600 transform translate-x-full' : 'bg-gray-300'
+            className={`absolute left-1 top-1 w-4 h-4 rounded-full transition-transform ${
+              isChecked ? `bg-brand-${theme} transform translate-x-full` : 'bg-gray-300'
             }`}
           />
         </label>

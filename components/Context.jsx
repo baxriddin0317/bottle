@@ -11,6 +11,9 @@ export const Provider = ({children}) => {
   const [darkMode, setDarkMode] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
+  // theme
+  const [theme, setTheme] = useState('');
+
   const handleLeft = () => {
     setLeft(prev => !prev);
   }
@@ -19,8 +22,23 @@ export const Provider = ({children}) => {
     setRight(prev => !prev);
   }
 
-  // dark mode
+  // theme
+  useEffect(() => {
+    const isColor = localStorage.getItem('color') === "";
+    console.log(isColor);
+    if(isColor){
+      setTheme('sky');
+    }else {
+      setTheme(localStorage.getItem('color'));
+    }
+  }, []);
 
+  useEffect(() => {
+    localStorage.setItem('color', theme);
+  }, [theme]);
+
+
+  // dark mode
   useEffect(() => {
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     if (isDarkMode) {
@@ -38,9 +56,6 @@ export const Provider = ({children}) => {
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [darkMode]);
-
-  useEffect(() => {
     setIsChecked(darkMode)
   }, [darkMode]);
 
@@ -55,7 +70,9 @@ export const Provider = ({children}) => {
     right,
     handleRight,
     handleSwitch,
-    isChecked
+    isChecked,
+    theme,
+    setTheme
   }
   return <MainContext.Provider value={value}>
     {children}

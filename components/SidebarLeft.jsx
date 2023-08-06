@@ -4,13 +4,13 @@ import {menu} from "@/lib/sidebar"
 import { MainContext } from './Context'
 
 const SidebarLeft = () => {
-  const {left} = useContext(MainContext);
+  const {left, theme} = useContext(MainContext);
 
   return (
     <aside className={`fixed top-20 shadow-md dark:shadow-none bg-white dark:bg-brand-black-dark text-brand-black-light dark:text-white h-screen transition-all duration-500 ease-in-out ${left ? 'left-0' : '-left-full'}`}>
       <div className='flex flex-col w-full h-screen overflow-y-auto pb-10'>
         {menu.map((item, idx) => (
-          <div key={idx} className={`relative group flex flex-col items-center  hover:text-brand-amber dark:hover:text-brand-amber py-6 px-5 border-b border-brand-gray dark:border-brand-black-primary cursor-pointer ${item.active ? 'sidebar-active before:bg-brand-amber text-brand-amber' : 'text-brand-black-light dark:text-brand-gray-dark'}`}>
+          <div key={idx} className={`relative group flex flex-col items-center  hover:text-brand-${theme} dark:hover:text-brand-${theme} py-6 px-5 border-b border-brand-gray dark:border-brand-black-primary cursor-pointer ${item.active ? `sidebar-active before:bg-brand-${theme} text-brand-${theme}` : 'text-brand-black-light dark:text-brand-gray-dark'}`}>
             <span className={`text-4xl`}>
               {item.icon}
             </span>
