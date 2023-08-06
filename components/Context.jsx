@@ -25,8 +25,8 @@ export const Provider = ({children}) => {
 
   // theme
   useEffect(() => {
-    const isColor = localStorage.getItem('color') === "";
-    console.log(isColor);
+    const isColor = localStorage.getItem('color') === null;
+    
     if(isColor){
       setTheme('sky');
     }else {
