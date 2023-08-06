@@ -67,6 +67,7 @@ const Header = () => {
         <Tippy 
           content='Toggle Dark Mode'
           className='bg-white !text-sm'
+          appendTo="parent"
           interactive={true}
           theme={!darkMode && 'light'} 
           placement="bottom"
@@ -90,6 +91,7 @@ const Header = () => {
         <Tippy 
           content='Fullscreen'
           className='bg-white !text-sm'
+          appendTo="parent"
           interactive={true}
           theme={!darkMode && 'light'} 
           placement="bottom"
@@ -102,6 +104,7 @@ const Header = () => {
         <Tippy 
           content={<Tooltip />}
           className='bg-white !text-sm'
+          appendTo="parent"
           interactive={true}
           theme={!darkMode && 'light'} 
           placement="bottom"
