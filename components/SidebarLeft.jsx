@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import {menuItems} from "@/lib/sidebar"
 import { MainContext } from './Context'
 import Tippy from '@tippyjs/react';
@@ -44,7 +44,7 @@ const Tooltip = ({data}) => {
       </div>
       <div className='flex flex-col gap-2 p-5 border-b border-brand-gray dark:border-brand-black-primary'>
         {data.body.map((item, idx) => (
-          <div className={`flex items-center gap-2 cursor-pointer hover:text-brand-${theme}`}>
+          <div key={idx} className={`flex items-center gap-2 cursor-pointer hover:text-brand-${theme}`}>
             <span className='text-2xl'>
               {item.ico}
             </span>
