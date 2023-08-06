@@ -14,7 +14,7 @@ const SidebarLeft = () => {
         {menuItems.map((item, idx) => (
           <div key={idx}>
             <Tippy  
-              content={item.data && <Tooltip key={idx} data={item.data} />}
+              content={item.data ? <Tooltip data={item.data} /> : null }
               className='bg-white'
               interactive={true}
               theme={!darkMode && 'light'} 
