@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useContext, useState } from 'react'
 import { MainContext } from './Context'
 import { IoSettingsOutline, IoClose } from "react-icons/io5"
@@ -5,7 +7,14 @@ import Radio from './Radio'
 import Themes from './Themes'
 
 const SidebarRight = () => {
-  const {right, handleRight, isChecked, handleSwitch, theme} = useContext(MainContext);
+  const [isMenu, setIsMenu] = useState(false);
+
+  const {right, handleRight, isChecked, handleSwitch, theme, setMenu} = useContext(MainContext);
+
+  const handleMenuSwitch = () => {
+    setIsMenu(prev => !prev)
+    setMenu(prev => !prev)
+  }
 
   return (
     <div className='relative'>
@@ -54,14 +63,14 @@ const SidebarRight = () => {
             <label className="relative inline-block w-10 h-5 cursor-pointer">
               <input
                 type="checkbox"
-                checked={isChecked}
-                onChange={handleSwitch}
+                checked={isMenu}
+                onChange={handleMenuSwitch}
                 className="hidden"
               />
-              <span className={`${isChecked ? `border-brand-${theme}` : 'border-gray-300' } absolute left-0 top-0 w-10 h-6 rounded-full bg-transparent border`} />
+              <span className={`${isMenu ? `border-brand-${theme}` : 'border-gray-300' } absolute left-0 top-0 w-10 h-6 rounded-full bg-transparent border`} />
               <span
                 className={`absolute left-1 top-1 w-4 h-4 rounded-full transition-transform ${
-                  isChecked ? `bg-brand-${theme} transform translate-x-full` : 'bg-gray-300'
+                  isMenu ? `bg-brand-${theme} transform translate-x-full` : 'bg-gray-300'
                 }`}
               />
             </label>

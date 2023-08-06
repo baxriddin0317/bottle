@@ -10,9 +10,10 @@ export const Provider = ({children}) => {
   // dark mode
   const [darkMode, setDarkMode] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-
   // theme
   const [theme, setTheme] = useState('');
+  // menu
+  const [menu, setMenu] = useState(false);
 
   const handleLeft = () => {
     setLeft(prev => !prev);
@@ -72,7 +73,9 @@ export const Provider = ({children}) => {
     handleSwitch,
     isChecked,
     theme,
-    setTheme
+    setTheme,
+    menu,
+    setMenu
   }
   return <MainContext.Provider value={value}>
     {children}
