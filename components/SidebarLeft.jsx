@@ -4,17 +4,27 @@ import { MainContext } from './Context'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css'
+import { CiLaptop } from 'react-icons/ci';
 
 const SidebarLeft = () => {
   const {left, theme, menu, darkMode} = useContext(MainContext);
 
   return (
-    <aside className={`fixed top-20 shadow-md dark:shadow-none h-screen transition-all duration-1000 ease ${menu ? `bg-brand-${theme}` : 'bg-white dark:bg-brand-black-dark text-brand-black-light dark:text-white'} ${left ? 'left-0' : '-left-full'}`}>
+    <aside className={`fixed z-40 top-20 shadow-md dark:shadow-none h-screen !-left-full md:!left-0 transition-all duration-1000 ease ${menu ? `bg-brand-${theme}` : 'bg-white dark:bg-brand-black-dark text-brand-black-light dark:text-white'} ${left ? '!left-0' : '-left-full'}`}>
       <div className='flex flex-col w-full h-screen overflow-y-auto overflow-x-visible pb-10'>
+        <div className={`relative flex flex-col items-center justify-center w-32 py-6 px-5 border-b border-brand-gray dark:border-brand-black-primary cursor-pointer dark:text-brand-gray-dark ${menu ? 'text-white dark:!text-brand-black-primary' : `hover:text-brand-${theme} dark:hover:text-brand-${theme}`}`}>
+          <span className={`text-4xl`}>
+            <CiLaptop />
+          </span>
+          <span className='text-sm capitalize mt-2'>dashboard</span>
+        </div>
         {menuItems.map((item, idx) => (
           <div key={idx}>
             <Tippy  
               content={item.data ? <Tooltip data={item.data} /> : '' }
+              className='bg-white'
+              appendTo="parent"
+              interactive={true}
               theme={!darkMode && 'light'} 
               placement="left"
             >
