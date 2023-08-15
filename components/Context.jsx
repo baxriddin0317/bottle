@@ -6,6 +6,7 @@ export const MainContext = createContext();
 
 export const Provider = ({children}) => {
   const [ left, setLeft ] = useState(true);
+  const [ icon, setIcon ] = useState(true);
   const [ right, setRight ] = useState(false);
   // dark mode
   const [darkMode, setDarkMode] = useState(false);
@@ -16,7 +17,7 @@ export const Provider = ({children}) => {
   const [menu, setMenu] = useState(false);
 
   const handleLeft = () => {
-    setLeft(prev => !prev);
+    setLeft(!left);
   }
 
   const handleRight = () => {
@@ -71,10 +72,13 @@ export const Provider = ({children}) => {
     isChecked,
     theme,
     menu,
+    icon,
+    setIcon,
     handleSwitch,
     handleRight,
     setTheme,
     setMenu,
+    setLeft,
     handleLeft,
   }
   return <MainContext.Provider value={value}>
