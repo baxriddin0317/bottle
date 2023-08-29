@@ -5,10 +5,10 @@ import { MainContext } from "./Context";
 const Radio = () => {
   const { theme, setLeft, setIcon, left, icon } = useContext(MainContext);
 
-  const handleType = (e) => {
-    if (e === "default") {
+  const handleType = (id) => {
+    if (id === "default") {
       setLeft(true);
-    } else if (e === "hidden") {
+    } else if (id === "hidden") {
       setLeft(false);
     }
   };
