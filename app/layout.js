@@ -13,9 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className="bg-white dark:bg-brand-black-primary" suppressHydrationWarning={true}>
-        <Provider>
-          {children}
-        </Provider>
+        <ErrorBoundary>
+          <Provider>
+            {children}
+          </Provider>
+        </ErrorBoundary>
       </body>
     </html>
   )
