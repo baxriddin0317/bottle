@@ -1,4 +1,4 @@
-import { Provider } from '@/components/Context'
+
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -12,11 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className="bg-white dark:bg-brand-black-primary" suppressHydrationWarning={true}>
-        <Provider>
-          {children}
-        </Provider>
-      </body>
+      <Providers>
+        {children}
+      </Providers>
     </html>
   )
 }
